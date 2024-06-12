@@ -1,12 +1,12 @@
 <?php
     $error = Array();
 
-    if($_SERVER["REQUEST_METHOD"] == 'GET'){
-        echo "GET REQUEST";
-    }
+    // if($_SERVER["REQUEST_METHOD"] == 'GET'){
+    //     echo "GET REQUEST";
+    // }
     if($_SERVER["REQUEST_METHOD"] == 'POST')
     {
-        echo "Form submitted successfully";
+        // echo "Form submitted successfully";
     
     
       $crn = $_POST['crn'];
@@ -124,10 +124,12 @@
                 }
      
          if(!empty($error)){
-            header('Location : Login.php');
+           
+            // header("Location: login.php");
+            // header('Location : Login.php');
          }
 
-         echo $crn." ".$program." ".$semester." ".$name." ".$email." ".$phone." ".$password." ".$confirm_password." ".$gender;
+        //  echo $crn." ".$program." ".$semester." ".$name." ".$email." ".$phone." ".$password." ".$confirm_password." ".$gender;
      //        echo "<pre>";
      //        print_r($errors);
      //        echo "</pre>";
@@ -142,6 +144,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="website.css">
+    <style>
+        .error{
+            color:red;
+        }
+    </style>
 </head>
 <body>
     <form method='POST' action="" >
@@ -150,17 +157,19 @@
         </div> -->
     <div class="wrapper">
         <div class="title">
-            Rgistration Form
+            Registration Form
         </div>
         <div class="form">
             <div class="input_field">
                 <label> CRN Number</label>
                 <input type="number" class="input" name="crn" id="crn" ><br>
+                <div class="error">
                 <?php
                     if(isset($error['crn_error'])){
                         echo $error['crn_error'];
                     }
-                ?>    
+                ?>
+                </div>   
             </div>
             <div class="input_field">
                 <label> Program</label>
@@ -172,11 +181,14 @@
                  <option value="">BSc.CSIT</option>
                  <option value="">BBS</option>
                </select><br>
+               <div class="error">
                <?php
                  if(isset($error['program_error'])){
                     echo $error['program_error'];
                  }
                 ?> 
+                </div>   
+
             </div>
             <div class="input_field">
                 <label > Semester</label>
@@ -194,56 +206,80 @@
                     <option value=" ">3rd Year</option>
                     <option value=" ">4th Year</option>
                   </select><br>
+                <div class="error">
+
                   <?php
                  if(isset($error['semester_error'])){
                     echo $error['semester_error'];
                  }
                 ?> 
+                </div>   
+
             </div>
             <div class="input_field">
                 <label> Full Name</label>
                 <input type="text" class="input" id="name" name="name"><br>
+                <div class="error">
+
                 <?php
                    if(isset($error['name_error'])){
                      echo $error['name_error'];
                    }
                 ?>   
             </div>
+            </div>   
+
             <div class="input_field">
                 <label> Email</label>
                 <input type="text" class="input" id="email" name="email" ><br>
+                <div class="error">
+
                 <?php
                    if(isset($error['email_error'])){
                      echo $error['email_error'];
                    }
                 ?> 
             </div>
+            </div>   
+
             <div class="input_field">
                 <label> Phone no</label>
                 <input type="number" class="input" maxlength="10" id="phone" name="phone"><br>
+                <div class="error">
+
                 <?php
                    if(isset($error['phone_error'])){
                      echo $error['phone_error'];
                    }
                 ?> 
+                </div>   
+
             </div>
             <div class="input_field">
                 <label> Password</label>
                 <input type="password" class="input" id="passwprd" name="password"  ><br>
+                <div class="error">
+
                 <?php
                    if(isset($error['password_error'])){
                      echo $error['password_error'];
                    }
                 ?> 
+                </div>   
+
             </div>
             <div class="input_field">
                 <label> Confirm Psw</label>
                 <input type="password" class="input" id="confirm_password" name = "confirm_password"><br>
+                <div class="error">
+
                 <?php
                    if(isset($error['confirm_password_error'])){
                      echo $error['confirm_password_error'];
                    }
-                ?> 
+                ?>
+                </div>   
+
             </div>
             <div class="input_field">
                 <label> Gender</label>
@@ -251,20 +287,22 @@
                         <input type="radio" name="gender" id="male" checked>Male
                         <input type="radio" name="gender" id="female">Female
                         <input type="radio" name="gender" id="others" >Other  
+                <div class="error">
+
                         <?php
                    if(isset($error['gender_error'])){
                      echo $error['gender_error'];
                    }
                 ?>  
                 </div>
-            </div>
+            </div><br>
             <div class="input_field term">
                 <label class="check">
                     <input type="checkbox" required>
                     <span class="checkmark"></span>
                 </label>
                 <p>I agree  to all the  terms and conditions</p>
-            </div>
+            </div><br>
             <div class="input_field">
                 <input type="submit" value="Register" class="btn">
             </div>
