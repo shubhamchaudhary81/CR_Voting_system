@@ -295,14 +295,15 @@
                    }
                 ?>  
                 </div>
-            </div><br>
+            </div> 
+            <br>
             <div class="input_field term">
                 <label class="check">
                     <input type="checkbox" required>
                     <span class="checkmark"></span>
                 </label>
                 <p>I agree  to all the  terms and conditions</p>
-            </div><br>
+            </div>
             <div class="input_field">
                 <input type="submit" value="Register" class="btn">
             </div>
